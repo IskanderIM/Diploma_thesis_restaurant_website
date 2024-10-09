@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'ContactView',
+  name: 'PortfolioView',
 
   data() {
     return {
