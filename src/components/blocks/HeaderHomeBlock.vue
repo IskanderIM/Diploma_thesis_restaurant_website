@@ -50,8 +50,8 @@ import SpicesBlock from '../SpicesBlock.vue';
     // components: { NavigationBlock },
     name: 'HeaderHomeBlock'
   }
-  </script>
-  <style scoped lang="scss">
+</script>
+<style scoped lang="scss">
   header {
     background-color: #2F3300;
   }

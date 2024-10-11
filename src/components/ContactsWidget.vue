@@ -78,17 +78,5 @@ export default {
       align-items: center;
     }
   }
-  .navbar-button {
-    transition: all .5s ease;
-    & svg {
-      transition: all .5s ease;
-    }
-  }
-  .navbar-button:hover {
-    color: #000000;
-    & svg {
-      stroke: #000000;
-      fill: #000000;
-    }
-  }
+
 </style>

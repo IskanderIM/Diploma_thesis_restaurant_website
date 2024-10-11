@@ -96,6 +96,11 @@ nav a:first-of-type {
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Rufina:wght@400;700&display=swap');
 
+svg path {
+  fill:inherit;
+  stroke:inherit;
+  stroke-width:inherit;
+}
 h2 {
   /* Heading 1 */
   font-family: 'Alegreya';
@@ -212,6 +217,18 @@ h6 {
   /* or 34px */
   letter-spacing: 0.02em;
 }
-
+.navbar-button {
+  transition: all .5s ease;
+  & svg {
+    transition: all .5s ease;
+  }
+}
+.navbar-button:hover {
+  color: #000000;
+  & svg {
+    stroke: #000000;
+    fill: #000000;
+  }
+}
 
 </style>
