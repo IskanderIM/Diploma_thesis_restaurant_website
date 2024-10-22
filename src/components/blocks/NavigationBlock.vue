@@ -1,5 +1,4 @@
 <template>
-
   <div class="navbar">
     <div class="navbar__left">
       <router-link to="/">
@@ -11,59 +10,55 @@
     </div>
     <div class="navbar__right">
       <a class="navbar__right__tel navbar-button" href="tel:+86852346000">+86 852 346 000</a>
-      <button @click="toggleBooking" class="navbar-button navbar-button__booking heading-five text-white">
+      <a href="#booking-form" class="navbar-button navbar-button__booking heading-five text-white">
         Бронирование
-      </button>
+      </a>
+      <!-- <button @click="toggleBooking" href="#booking-form" class="navbar-button navbar-button__booking heading-five text-white">
+        Бронирование
+      </button> -->
     </div>
   </div>
-    
-
-    <transition name="fade">
-      <div v-if="isMenuOpen" 
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" 
-      @click="closeMenu">
-        <div class="navbar-menu rounded" @click.stop>   
-          <div class="navbar-menu__left">
-            <button @click="closeMenu" class="navbar-menu__close mt-4 text-white p-2">              
-              <button-nav-close />
-            </button>
-            <ul class="nav-items list-disc pl-10">
-              <li class="nav-item navbar-button"><RouterLink to="/">дом</RouterLink></li>
-              <li class="nav-item navbar-button"><RouterLink to="/menu">меню</RouterLink></li>
-              <li class="nav-item navbar-button"><RouterLink to="/blogs">блоги</RouterLink></li>
-              <li class="nav-item navbar-button"><RouterLink to="/about">о нас</RouterLink></li>
-              <li class="nav-item navbar-button"><RouterLink to="/contact">контакты</RouterLink></li>
-            </ul>
-              
-          </div>
-          <div class="navbar-menu__right">
-            <contacts-widget />
-          </div>
-          
-          
-        </div>
-        <img class="navbar-menu__background-image" src="@/assets/menu/NavigationFullscreenCover.jpg" alt="">
-      </div>
-    </transition>
-
-    <transition name="fade">
-      <div v-if="isBookingOpen" 
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" 
-      @click="closeBooking">
-        <div class="bg-white p-5 rounded shadow-lg" @click.stop>
-          <h2 class="text-lg font-bold mb-4">Всплывающее меню2</h2>
-          <ul class="list-disc">
-            <li><a href="#" class="block py-2">Ссылка 1</a></li>
-            <li><a href="#" class="block py-2">Ссылка 2</a></li>
-            <li><a href="#" class="block py-2">Ссылка 3</a></li>
-          </ul>        
-          <button @click="closeBooking" class="mt-4 bg-red-500 text-white p-2">
-            Закрыть меню
+  <transition name="fade">
+    <div v-if="isMenuOpen" 
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" 
+    @click="closeMenu">
+      <div class="navbar-menu rounded" @click.stop>   
+        <div class="navbar-menu__left">
+          <button @click="closeMenu" class="navbar-menu__close mt-4 text-white p-2">              
+            <button-nav-close />
           </button>
+          <ul class="nav-items list-disc pl-10">
+            <li class="nav-item navbar-button"><RouterLink to="/">дом</RouterLink></li>
+            <li class="nav-item navbar-button"><RouterLink to="/menu">меню</RouterLink></li>
+            <li class="nav-item navbar-button"><RouterLink to="/blogs">блоги</RouterLink></li>
+            <li class="nav-item navbar-button"><RouterLink to="/about">о нас</RouterLink></li>
+            <li class="nav-item navbar-button"><RouterLink to="/contact">контакты</RouterLink></li>
+          </ul>            
+        </div>
+        <div class="navbar-menu__right">
+          <contacts-widget />
         </div>
       </div>
-    </transition>
-
+      <img class="navbar-menu__background-image" src="@/assets/menu/NavigationFullscreenCover.jpg" alt="">
+    </div>
+  </transition>
+  <!-- <transition name="fade">
+    <div v-if="isBookingOpen" 
+    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" 
+    @click="closeBooking">
+      <div class="bg-white p-5 rounded shadow-lg" @click.stop>
+        <h2 class="text-lg font-bold mb-4">Всплывающее меню2</h2>
+        <ul class="list-disc">
+          <li><a href="#" class="block py-2">Ссылка 1</a></li>
+          <li><a href="#" class="block py-2">Ссылка 2</a></li>
+          <li><a href="#" class="block py-2">Ссылка 3</a></li>
+        </ul>        
+        <button @click="closeBooking" class="mt-4 bg-red-500 text-white p-2">
+          Закрыть меню
+        </button>
+      </div>
+    </div>
+  </transition> -->
 </template>
 <script>
 import ButtonNavClose from '../buttons/ButtonNavClose.vue';
@@ -96,6 +91,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+  html {
+    scroll-behavior: smooth;
+  }
   svg path {
     fill:inherit;
     stroke:inherit;
@@ -159,7 +157,7 @@ export default {
   }
   .navbar-button__booking:hover {
       border-color:#000000;
-      box-shadow: 8px 10px 5px 2px rgba(0, 0, 255, .2);
+      box-shadow: 8px 10px 5px 2px rgba(35, 48, 0, 0.4);
   }
   // .navbar-button:hover svg {
   //   stroke: #000000;
@@ -225,6 +223,8 @@ export default {
       font-size: 35px;
       margin-right: 10px;
     }
+    &:hover {
+      color:#9CAA00;
+    }
   }
-
 </style>

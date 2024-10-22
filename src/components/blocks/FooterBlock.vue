@@ -8,17 +8,19 @@
 <template>
   <footer class="footer flex flex-col">
     <section class="footer__top flex flex-col items-center mt-40 ">
-      <section class="footer__top-section flex justify-between mb-40">
-        <section class="footer__top-section__logo">
-          <h2 class="footer-logo-text">Food
-          <br>Zero.</h2>
+      <section class="footer__top-section flex justify-between gap-16 mb-40">
+        <section class="footer__top-section__logo basis-3/12">
+          <router-link to="/">
+            <h2 class="footer-logo-text pt-8">Food
+            <br>Zero.</h2>
+          </router-link>
         </section>
-        <section class="footer__top-section__contacts">
-          <header class="contacts-footer__title">
+        <section class="footer__top-section__contacts basis-3/12">
+          <header class="contacts-footer__title mb-14">
             <h6>контакты</h6>
           </header>
           <footer>
-            <div class="contacts-footer">
+            <div class="contacts-footer mb-7">
               <a class="contacts-footer__text" href="tel:+86852346000">+86 852 346 000</a><br>
               <a class="contacts-footer__text" href="mail:info@foodzero.com">info@foodzero.com</a>
             </div>
@@ -28,7 +30,7 @@
             </div>
           </footer>
         </section>
-        <section class="footer__top-section__subscribe">
+        <section class="footer__top-section__subscribe basis-6/12">
           <SubscribeForm />
         </section>
       </section>      
@@ -75,6 +77,14 @@ export default {
       border-bottom: 2px dashed rgb(255, 255, 255);
       &-section {
         min-width: 1680px;
+        &__contacts {
+          & header {
+            width: 210px;
+          }
+          & footer {
+            width: 210px;
+          }
+        }
       }
     }
     &__bottom-section {

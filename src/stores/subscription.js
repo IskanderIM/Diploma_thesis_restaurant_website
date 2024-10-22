@@ -8,7 +8,7 @@ export const useSubscriptionStore = defineStore('subscription', {
   actions: {
     async subscribe(email) {
       try {
-        const response = await axios.post('/api/subscribe', { email });
+        const response = await axios.post('http://localhost:3000/api/subscribe', { email });
         if (response.status === 200) {
           this.email = email;
           return true;

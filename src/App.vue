@@ -1,28 +1,15 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
 import HomeView from './views/HomeView.vue';
 </script>
 
 <template>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>-->
-
-  <RouterView /> 
+  <section>
+    <RouterView /> 
   <!-- <NavigationBlock />
   <home-view /> -->
   <!-- <HomeView /> -->
-
+  </section> 
 </template>
 
 <style lang="scss">
@@ -96,6 +83,10 @@ nav a:first-of-type {
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Rufina:wght@400;700&display=swap');
 
+
+html {
+  scroll-behavior: smooth;
+}
 svg path {
   fill:inherit;
   stroke:inherit;
@@ -109,6 +100,9 @@ h2 {
   font-size: 108px;
   line-height: 120px;
   color: #000000;
+}
+button {
+  transition: all .5s ease;
 }
 .heading-one {
   /* Heading 1 */
@@ -148,7 +142,7 @@ h5 {
   font-weight: 700;
   font-size: 40px;
   line-height: 64px;
-  text-align: center;
+  // text-align: center;
   color: #000000;
 }
 .heading-four {
@@ -158,7 +152,7 @@ h5 {
   font-weight: 700;
   font-size: 40px;
   line-height: 64px;
-  text-align: center;
+  // text-align: center;
   color: #000000;
 }
 h6 {
