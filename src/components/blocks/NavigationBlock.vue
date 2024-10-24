@@ -13,9 +13,6 @@
       <a href="#booking-form" class="navbar-button navbar-button__booking heading-five text-white">
         Бронирование
       </a>
-      <!-- <button @click="toggleBooking" href="#booking-form" class="navbar-button navbar-button__booking heading-five text-white">
-        Бронирование
-      </button> -->
     </div>
   </div>
   <transition name="fade">
@@ -42,23 +39,6 @@
       <img class="navbar-menu__background-image" src="@/assets/menu/NavigationFullscreenCover.jpg" alt="">
     </div>
   </transition>
-  <!-- <transition name="fade">
-    <div v-if="isBookingOpen" 
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" 
-    @click="closeBooking">
-      <div class="bg-white p-5 rounded shadow-lg" @click.stop>
-        <h2 class="text-lg font-bold mb-4">Всплывающее меню2</h2>
-        <ul class="list-disc">
-          <li><a href="#" class="block py-2">Ссылка 1</a></li>
-          <li><a href="#" class="block py-2">Ссылка 2</a></li>
-          <li><a href="#" class="block py-2">Ссылка 3</a></li>
-        </ul>        
-        <button @click="closeBooking" class="mt-4 bg-red-500 text-white p-2">
-          Закрыть меню
-        </button>
-      </div>
-    </div>
-  </transition> -->
 </template>
 <script>
 import ButtonNavClose from '../buttons/ButtonNavClose.vue';
@@ -103,7 +83,7 @@ export default {
   .fade-leave-active {
     transition: opacity 0.5s;
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active в <2.1.8 */ {
+  .fade-enter, .fade-leave-to {
     opacity: 0;
   }
   .navbar {
@@ -159,9 +139,6 @@ export default {
       border-color:#000000;
       box-shadow: 8px 10px 5px 2px rgba(35, 48, 0, 0.4);
   }
-  // .navbar-button:hover svg {
-  //   stroke: #000000;
-  // }
   .navbar-menu {
     display: flex;
     width: 100%;
@@ -170,7 +147,6 @@ export default {
     z-index: 2;
     justify-content: space-around;
     flex-direction: row;
-    // align-items: flex-end;
     &__left {
       margin-top: 222px;
     }
@@ -195,29 +171,23 @@ export default {
     height: 682px;
     left: 300px;
     top: 222px;
-    /* Автолейаут */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 28px;
     padding: 0px;
-    // list-style-position: inside;
     list-style-type: disc;    
   }
   .nav-item {
     /* NavItem */
     display: list-item;
-    /* Nav Item */
     font-family: 'Alegreya';
     font-style: normal;
     font-weight: 700;
     font-size: 66px;
     line-height: 90px;
-    /* identical to box height */
     text-transform: uppercase;
-
-    /* FFFFFF */
     color: #FFFFFF;
     &::marker {
       font-size: 35px;

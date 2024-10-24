@@ -1,8 +1,9 @@
 <script setup>
-import FooterBlock from "@/components/blocks/FooterBlock.vue";
 import HeaderHomeBlock from "@/components/blocks/HeaderHomeBlock.vue"
-import BookingForm from "@/components/BookingForm.vue"
 import MenuHomeBlock from '@/components/blocks/MenuHomeBlock.vue';
+import RecentPostBlogBlock from "@/components/blocks/RecentPostBlogBlock.vue";
+import BookingForm from "@/components/BookingForm.vue"
+import FooterBlock from "@/components/blocks/FooterBlock.vue";
 </script>
 <template>
   <section>
@@ -36,6 +37,7 @@ import MenuHomeBlock from '@/components/blocks/MenuHomeBlock.vue';
         </figure>
       </section>
     </section>
+    <RecentPostBlogBlock />
     <BookingForm />
     <FooterBlock />
   </section>

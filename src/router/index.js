@@ -1,9 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import MenuView from '@/views/MenuView.vue'
-import ContactView from '@/views/ContactView.vue'
-import PortfolioView from '@/views/PortfolioView.vue'
-import BlogsView from '@/views/BlogsView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import MenuView from '@/views/MenuView.vue';
+import ContactView from '@/views/ContactView.vue';
+import PortfolioView from '@/views/PortfolioView.vue';
+import BlogsView from '@/views/BlogsView.vue';
+import BlogView from '@/views/BlogView.vue'; // Добавляем импорт BlogView
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,9 +27,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      // ленивый импорт компонента для разделения кода
       component: () => import('../views/AboutView.vue')
     },
     {
@@ -41,7 +40,13 @@ const router = createRouter({
       name: 'blogs',
       component: BlogsView,
     },
+    {
+      path: '/article/:id', // Маршрут для просмотра отдельной статьи по ID
+      name: 'blog',
+      component: BlogView,
+      props: true // Позволяет передавать параметры маршрута как пропсы
+    }
   ]
-})
+});
 
-export default router
+export default router;

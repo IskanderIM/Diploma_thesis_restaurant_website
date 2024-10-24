@@ -12,8 +12,6 @@ const PORT = 3000;
 const EMAILS_FILE = path.join(__dirname, 'emails.json'); // Файл для подписок
 const BOOKINGS_FILE = path.join(__dirname, 'bookings.json'); // Файл для бронирований
 const MENU_FILE = path.join(__dirname, 'data', 'data-menu.json'); // Файл для меню
-const ARTICLES_FILE = path.join(__dirname, 'data', 'data-articles.json'); // Файл для статей
-const COMMENTS_FILE = path.join(__dirname, 'data', 'comments.json'); // Файл для комментариев
 
 // Middleware
 app.use(cors());
@@ -141,62 +139,6 @@ app.get('/api/menu', (req, res) => {
     }
   });
 });
-
-// ----------- Новый функционал для работы с блогами -----------
-
-// Маршрут для получения статей с пагинацией (по 5 статей на запрос)
-app.get('/api/articles', (req, res) => {
-  const articles = readFileData(ARTICLES_FILE);
-  const page = parseInt(req.query.page) || 1;
-  const limit = 5;
-  const start = (page - 1) * limit;
-  const end = start + limit;
-
-  const paginatedArticles = articles.slice(start, end);
-
-  res.status(200).json(paginatedArticles);
-});
-
-// Маршрут для получения статьи по ID
-app.get('/api/articles/:id', (req, res) => {
-  const articles = readFileData(ARTICLES_FILE);
-  const article = articles.find((a) => a.id == req.params.id);
-
-  if (!article) {
-    return res.status(404).json({ message: 'Статья не найдена' });
-  }
-
-  res.status(200).json(article);
-});
-
-// Маршрут для добавления комментария к статье
-app.post('/api/articles/:id/comments', (req, res) => {
-  const { username, content } = req.body;
-  const articleId = req.params.id;
-
-  if (!username || !content) {
-    return res.status(400).send({ message: 'Имя пользователя и текст комментария обязательны.' });
-  }
-
-  const comments = readFileData(COMMENTS_FILE);
-  const newComment = {
-    username,
-    content,
-    createdAt: new Date().toISOString(),
-  };
-
-  // Если комментариев к статье ещё нет, создаём массив
-  if (!comments[articleId]) {
-    comments[articleId] = [];
-  }
-
-  comments[articleId].push(newComment);
-  writeFileData(COMMENTS_FILE, comments);
-
-  res.status(201).json(newComment);
-});
-
-// ----------- Конец функционала для блогов -----------
 
 // Запуск сервера
 app.listen(PORT, () => {

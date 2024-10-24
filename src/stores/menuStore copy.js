@@ -3,25 +3,16 @@ import axios from 'axios';
 
 export const useMenuStore = defineStore('menu', {
   state: () => ({
-    menu: [], // Данные меню
-    loading: false, // Состояние загрузки
-    error: null, // Ошибки при загрузке
+    menu: [], // Здесь будут храниться данные меню
   }),
 
   actions: {
-    // Функция для загрузки меню с сервера
     async fetchMenu() {
-      this.loading = true; // Начинаем загрузку
-      this.error = null; // Сбрасываем ошибки перед новой загрузкой
-
       try {
         const response = await axios.get('http://localhost:3000/api/menu');
         this.menu = response.data;
       } catch (error) {
         console.error('Ошибка загрузки меню:', error);
-        this.error = 'Ошибка загрузки меню';
-      } finally {
-        this.loading = false; // Окончание загрузки
       }
     },
 
@@ -38,21 +29,15 @@ export const useMenuStore = defineStore('menu', {
 
       const usedDishes = []; // Массив для хранения выбранных блюд, чтобы избежать дублирования
 
-      // Проверяем наличие разделов в меню
       const hotDishes = this.menu.find(section => section.title === 'Горячие блюда');
       const starters = this.menu.find(section => section.title === 'Закуски');
       const pastriesDrinks = this.menu.find(section => section.title === 'Выпечка и напитки');
 
-      if (!hotDishes || !starters || !pastriesDrinks) {
-        console.warn('Некоторые разделы меню отсутствуют');
-        return null; // Если не нашли разделы, возвращаем null
-      }
-
       return {
-        hotDish1: getRandomUniqueItem(hotDishes.dishes, usedDishes),
-        hotDish2: getRandomUniqueItem(hotDishes.dishes, usedDishes),
-        starterDish: getRandomUniqueItem(starters.dishes, usedDishes),
-        pastryDrinkDish: getRandomUniqueItem(pastriesDrinks.dishes, usedDishes),
+        hotDish1: hotDishes ? getRandomUniqueItem(hotDishes.dishes, usedDishes) : null,
+        hotDish2: hotDishes ? getRandomUniqueItem(hotDishes.dishes, usedDishes) : null,
+        starterDish: starters ? getRandomUniqueItem(starters.dishes, usedDishes) : null,
+        pastryDrinkDish: pastriesDrinks ? getRandomUniqueItem(pastriesDrinks.dishes, usedDishes) : null,
       };
     },
   },

@@ -4,35 +4,33 @@
 <template>
   <header class="headerHome">
     <NavigationBlock />
-    <section class="headerHome__container mb-[273px]">
-      <div class="headerHome__headline basis-6/12">
+    <section class="headerHome__container">
+      <article class="headerHome__headline">
         <div class="headerHome__headline-text">
           <h1 class="header__title">
-            Посмотреть наше новое меню
+            Список блогов
           </h1>
-          <h6 class="text-white">
-            Самые свежие ингредиенты для вас каждый день
-          </h6>
+          <p class="body-text text-white">
+            Это простой способ создать свой блаженный блог на каждый день.
+          </p>
         </div>
-      </div>
-    </section>
-    
+      </article>
+    </section>    
   </header>
 </template>
 <script>
   export default {
-    name: 'HeaderMenuBlock'
+    name: 'HeaderBlogsBlock'
   }
 </script>
 <style scoped lang="scss">
   header {
     background-color: #2F3300;
-    background-image: url("../../assets/menuView/Image.jpg");
+    background-image: url("../../assets/blogsView/Image.jpg");
     background-size: cover;
   }
   .header {
-    &__title {
-      margin-top: 142px;
+    &__title {      
       margin-bottom: 50px;
     }
   }
@@ -42,15 +40,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    & article {
-      width: 794px;
-    }
     &__container {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
       max-width: 1644px;
       justify-content: space-between;
+      margin-top: 160px;
+      margin-bottom: 280px;
+    }
+    &__headline-text {
+      text-align: center;
     }
   }
 </style>

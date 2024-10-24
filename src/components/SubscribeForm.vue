@@ -22,7 +22,7 @@ const submitForm = async () => {
 </script>
 <template>
   <div>
-    <h6 class="text-wight mb-14">Никогда не пропустите рецепт</h6>
+    <h6 class="text-white mb-14">Никогда не пропустите рецепт</h6>
     <form class="subscribe-form" @submit.prevent="submitForm">
       <div>
         <input class="input-email body-text"

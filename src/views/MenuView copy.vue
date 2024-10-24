@@ -1,15 +1,19 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useMenuStore } from '@/stores/menuStore'; // Подключаем Pinia Store
+import axios from 'axios';
 import HeaderMenuBlock from '@/components/blocks/HeaderMenuBlock.vue';
 import BookingForm from '@/components/BookingForm.vue';
 import FooterBlock from "@/components/blocks/FooterBlock.vue";
-
-// Инициализация Store
-const menuStore = useMenuStore();
-
+// Данные меню
+const menu = ref([]);
+// Запрашиваем данные меню при монтировании компонента
 onMounted(async () => {
-  await menuStore.fetchMenu(); // Загружаем данные меню
+  try {
+    const response = await axios.get('http://localhost:3000/api/menu');
+    menu.value = response.data;
+  } catch (error) {
+    console.error('Ошибка при загрузке меню:', error);
+  }
 });
 </script>
 
@@ -17,19 +21,14 @@ onMounted(async () => {
   <HeaderMenuBlock />
   <section class="menu-view flex flex-col items-center">
     <div class="menu-view__container">
-      <!-- Отображаем сообщение о загрузке -->
-      <div v-if="menuStore.loading">Загрузка меню...</div>
-      
-      <!-- Обрабатываем ошибки -->
-      <div v-if="menuStore.error">{{ menuStore.error }}</div>
-
       <!-- Рендерим разделы меню -->
-      <div v-for="section in menuStore.menu" :key="section.id" class="menu-view__menu-section" :style="{ backgroundImage: `url(${section.backgroundImage})` }">
+      <div v-for="section in menu" :key="section.id" class="menu-view__menu-section" :style="{ backgroundImage: `url(${section.backgroundImage})` }">
         <div class="menu-view__section-header">
           <h2>{{ section.title }}</h2>
-          <p class="body-text mt-4">{{ section.subtitle }}</p>
+          <p class="mt-4">{{ section.subtitle }}</p>
         </div>
-        <div class="menu-view__section-content flex flex-row mt-16 gap-[60px]" :class="getClass(section.id)">
+        <div class="menu-view__section-content flex flex-row mt-16 gap-[60px]"
+        :class="getClass(section.id)">
           <img :src="section.imageBig" alt="Изображение раздела" class="menu-view__section-content__image basis-6/12">
           <!-- Список блюд -->
           <div class="menu-view__section-content__dishes flex flex-col gap-14 basis-6/12">
@@ -47,7 +46,6 @@ onMounted(async () => {
   <BookingForm />
   <FooterBlock />
 </template>
-
 <script>
 export default {
   name: 'MenuView',
@@ -58,7 +56,6 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .menu-view {
   padding: 20px;
@@ -84,6 +81,9 @@ export default {
       max-width: 792px;
     }
     &__dishes {
+      // display: grid;
+      // grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      // gap: 20px;
       text-align: left;
     }
     &__dish {
@@ -95,4 +95,9 @@ export default {
     }
   }  
 }
+// .dish-thumbnail {
+//   width: 100%;
+//   height: auto;
+//   margin-top: 10px;
+// }
 </style>

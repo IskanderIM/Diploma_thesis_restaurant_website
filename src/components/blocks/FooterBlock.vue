@@ -17,7 +17,7 @@
         </section>
         <section class="footer__top-section__contacts basis-3/12">
           <header class="contacts-footer__title mb-14">
-            <h6>контакты</h6>
+            <h6 class="text-white">контакты</h6>
           </header>
           <footer>
             <div class="contacts-footer mb-7">

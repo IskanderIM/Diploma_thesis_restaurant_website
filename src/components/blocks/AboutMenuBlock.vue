@@ -2,55 +2,54 @@
   import NavigationBlock from './NavigationBlock.vue';
 </script>
 <template>
-  <header class="headerHome">
+  <header class="header-contact-view">
     <NavigationBlock />
-    <section class="headerHome__container mb-[273px]">
-      <div class="headerHome__headline basis-6/12">
-        <div class="headerHome__headline-text">
+    <section class="header-contact-view__container mb-[273px]">
+      <div class="basis-7/12"></div>
+      <div class="header-contact-view__headline basis-5/12">
+        <div class="header-contact-view__headline-text">
           <h1 class="header__title">
-            Посмотреть наше новое меню
+            Кто мы
           </h1>
           <h6 class="text-white">
-            Самые свежие ингредиенты для вас каждый день
+            Для нас самое главное – обеспечить вам комфортный отдых.
           </h6>
         </div>
-      </div>
+      </div>      
     </section>
     
   </header>
 </template>
 <script>
   export default {
-    name: 'HeaderMenuBlock'
+    name: 'AboutMenuBlock'
   }
 </script>
 <style scoped lang="scss">
   header {
     background-color: #2F3300;
-    background-image: url("../../assets/menuView/Image.jpg");
+    background-image: url("../../assets/aboutView/Image.jpg");
     background-size: cover;
   }
   .header {
     &__title {
-      margin-top: 142px;
+      margin-top: 184px;
       margin-bottom: 50px;
     }
   }
-  .headerHome {
+  .header-contact-view {
     min-width: 1680px;
     background-color: #2F3300;
     display: flex;
     flex-direction: column;
     align-items: center;
-    & article {
-      width: 794px;
-    }
     &__container {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
-      max-width: 1644px;
+      min-width: 1644px;
       justify-content: space-between;
+      margin-bottom: 422px;
     }
   }
 </style>

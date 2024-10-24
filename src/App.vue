@@ -101,6 +101,9 @@ h2 {
   line-height: 120px;
   color: #000000;
 }
+p, figcaption {
+  color: #4D4D4D;
+}
 button {
   transition: all .5s ease;
 }
@@ -114,8 +117,24 @@ button {
   color: #000000;
 }
 h3 {
+  /* Heading 2 */
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 78px;
+  line-height: 120%;
+  /* 000000 */
+  color: #000000;
 }
 .heading-two {
+  /* Heading 2 */
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 78px;
+  line-height: 120%;
+  /* 000000 */
+  color: #000000;
 }
 h4 {
   /* Heading 3 */
@@ -163,7 +182,7 @@ h6 {
   font-size: 32px;
   line-height: 48px;
   /* FFFFFF */
-  color: #FFFFFF;
+  color: #4D4D4D;
 }
 .heading-five {
   /* Heading 5 */
@@ -173,7 +192,7 @@ h6 {
   font-size: 32px;
   line-height: 48px;
   /* FFFFFF */
-  color: #FFFFFF;
+  // color: #FFFFFF;
 }
 .heading-six {}
 /* Header */
@@ -210,6 +229,18 @@ h6 {
   line-height: 140%;
   /* or 34px */
   letter-spacing: 0.02em;
+}
+.excerpt-text {
+  /* Excerpt */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 140%;
+  /* identical to box height, or 31px */
+  letter-spacing: 0.02em;
+  /* 4D4D4D */
+  color: #4D4D4D;
 }
 .navbar-button {
   transition: all .5s ease;
