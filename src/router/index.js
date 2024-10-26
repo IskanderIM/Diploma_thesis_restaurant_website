@@ -4,7 +4,7 @@ import MenuView from '@/views/MenuView.vue';
 import ContactView from '@/views/ContactView.vue';
 import PortfolioView from '@/views/PortfolioView.vue';
 import BlogsView from '@/views/BlogsView.vue';
-import BlogView from '@/views/BlogView.vue'; // Добавляем импорт BlogView
+import BlogView from '@/views/BlogView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

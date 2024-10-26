@@ -75,23 +75,6 @@ const loadMore = () => {
           </div>
         </div>
         <button class="pagination_loading body-text" @click="loadMore" v-if="articleStore.hasMore">Загрузить ещё</button>
-
-        <!-- <div v-for="article in articleStore.articles" :key="article.id">
-          <img :src="article.mainImage" alt="">
-          <p>{{ article.category }}</p>
-          <img :src="article.metadata.avatar" alt="">
-          <p>{{ article.metadata.authorFirstName }} {{ article.metadata.authorLastName }}</p>
-          <ul>
-            <li>{{ article.metadata.publishedDate }}</li>
-            <li>{{ article.metadata.publishedTime }}</li>
-            <li>{{ article.metadata.commentsCount }} комментария</li>
-          </ul>
-          <h5>{{ article.title }}</h5>
-          <p class="excerpt-text">{{ article.subtitle }}</p>
-          <router-link :to="'/article/' + article.id" class="body-text">Читать статью <img src="@/assets/icons/Icon_arrow-right.svg"/></router-link>
-        </div>
-        <button @click="loadMore" v-if="articleStore.hasMore">Загрузить ещё</button> -->
-
       </div>
     </section>
     <FooterBlock />    
@@ -177,26 +160,5 @@ export default {
     color: #FFFFFF;
   }
 }
-// .blogs__list {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
-// .blogs__item {
-//   width: 100%;
-//   margin-bottom: 20px;
-// }
-// .blogs__image {
-//   width: 100px;
-//   height: 100px;
-// }
-// .blogs__metadata {
-//   display: flex;
-//   align-items: center;
-// }
-// .blogs__button {
-//   background-color: #000;
-//   color: #fff;
-//   padding: 10px 20px;
-// }
 </style>
 

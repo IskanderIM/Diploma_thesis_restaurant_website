@@ -1,11 +1,11 @@
 <script setup>
-import ContactMenuBlock from '@/components/blocks/ContactMenuBlock.vue';
+import HeaderContactBlock from '@/components/blocks/HeaderContactBlock.vue';
 import BookingForm from "@/components/BookingForm.vue"
 import FooterBlock from "@/components/blocks/FooterBlock.vue";
 </script>
 <template>
   <section>
-    <ContactMenuBlock />
+    <HeaderContactBlock />
     <section class="contact-view flex flex-col items-center gap-36">
       <div class="contact-view__container container-top">
         <div class="contact-view__section-content grid grid-cols-2 gap-[60px]">

@@ -42,7 +42,7 @@
 </template>
 <script>
   export default {
-    name: 'ContactMenuBlock'
+    name: 'HeaderContactBlock'
   }
 </script>
 <style scoped lang="scss">

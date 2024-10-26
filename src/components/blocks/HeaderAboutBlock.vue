@@ -22,7 +22,7 @@
 </template>
 <script>
   export default {
-    name: 'AboutMenuBlock'
+    name: 'HeaderAboutBlock'
   }
 </script>
 <style scoped lang="scss">

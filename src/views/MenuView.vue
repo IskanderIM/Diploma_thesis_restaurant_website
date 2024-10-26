@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import { useMenuStore } from '@/stores/menuStore'; // Подключаем Pinia Store
 import HeaderMenuBlock from '@/components/blocks/HeaderMenuBlock.vue';
 import BookingForm from '@/components/BookingForm.vue';
@@ -12,17 +12,14 @@ onMounted(async () => {
   await menuStore.fetchMenu(); // Загружаем данные меню
 });
 </script>
-
 <template>
   <HeaderMenuBlock />
   <section class="menu-view flex flex-col items-center">
     <div class="menu-view__container">
       <!-- Отображаем сообщение о загрузке -->
-      <div v-if="menuStore.loading">Загрузка меню...</div>
-      
+      <div v-if="menuStore.loading">Загрузка меню...</div>      
       <!-- Обрабатываем ошибки -->
       <div v-if="menuStore.error">{{ menuStore.error }}</div>
-
       <!-- Рендерим разделы меню -->
       <div v-for="section in menuStore.menu" :key="section.id" class="menu-view__menu-section" :style="{ backgroundImage: `url(${section.backgroundImage})` }">
         <div class="menu-view__section-header">
@@ -37,7 +34,6 @@ onMounted(async () => {
               <p class="menu-view__section-content__dish-price heading-four">{{ dish.price }} ₽</p>
               <h4>{{ dish.name }}</h4>
               <p class="body-text">{{ dish.description }}</p>
-              <!-- <img :src="dish.thumbnail" alt="Изображение блюда" class="dish-thumbnail" /> -->
             </div>
           </div>
         </div>

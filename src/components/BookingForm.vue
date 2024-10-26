@@ -1,69 +1,3 @@
-<template>
-  <section class="booking-form" id="booking-form">
-    <div>
-      <div class="flex flex-col items-center pb-44">
-        <div class="flex flex-col mt-56">
-          <h2>Забронировать столик</h2>
-          <p class="body-text text-[#4d4d4d]">Свяжитесь с рестораном</p>
-        </div>
-        <form class="booking-form__form grid grid-cols-2 gap-12 mt-28" id="booking-form__form" @submit.prevent="submitForm">
-          <!-- Имя -->
-          <div class="body-text">
-            <!-- <label for="firstName">Имя *</label> -->
-            <input v-model="firstName" type="text" id="firstName" placeholder="Имя" required />
-          </div>
-
-          <!-- Фамилия -->
-          <div class="body-text">
-            <!-- <label for="lastName">Фамилия *</label> -->
-            <input v-model="lastName" type="text" id="lastName" placeholder="Фамилия" required />
-          </div>
-
-          <!-- Электронная почта -->
-          <div class="body-text col-span-2">
-            <!-- <label for="email">Электронная почта</label> -->
-            <input v-model="email" type="email" autocomplete="email" placeholder="Электронная почта" id="email" />
-          </div>
-
-          <!-- Телефон -->
-          <div class="body-text col-span-2">
-            <!-- <label for="phone">Телефон *</label> -->
-            <input v-model="phone" type="tel" id="phone" autocomplete="tel" placeholder="Телефон" required />
-          </div>
-
-          <!-- Дата -->
-          <div class="body-text">
-            <!-- <label for="date">Дата *</label> -->
-            <input v-model="date" type="date" id="date" required />
-          </div>
-
-          <!-- Время -->
-          <div class="body-text">
-            <!-- <label for="time">Время *</label> -->
-            <select v-model="time" id="time" required>
-              <option disabled value="">Выберите время</option>
-              <option v-for="t in availableTimes" :key="t" :value="t">{{ t }}</option>
-            </select>
-          </div>
-
-          <!-- Количество человек -->
-          <div class="body-text col-span-2">
-            <label for="guests">Количество человек *</label>
-            <select v-model="guests" id="guests" required>
-              <option disabled value="">Выберите количество человек</option>
-              <option v-for="n in 8" :key="n" :value="n">{{ n }}</option>
-            </select>
-          </div>          
-        </form>
-        <!-- Кнопка бронирования -->
-        <button class="booking-form__form__submit heading-five mt-20" type="submit" form="booking-form__form">Забронировать сейчас</button>
-        <!-- Сообщение об успешном бронировании -->
-        <p v-if="successMessage">{{ successMessage }}</p>
-      </div>  
-    </div>    
-  </section>
-</template>
-
 <script setup>
 import { ref } from 'vue';
 import { useBookingStore } from '@/stores/booking'; // Pinia Store для бронирования
@@ -104,7 +38,65 @@ const submitForm = async () => {
   }
 };
 </script>
+<template>
+  <section class="booking-form" id="booking-form">
+    <div>
+      <div class="flex flex-col items-center pb-44">
+        <div class="flex flex-col mt-56">
+          <h2>Забронировать столик</h2>
+          <p class="body-text text-[#4d4d4d]">Свяжитесь с рестораном</p>
+        </div>
+        <form class="booking-form__form grid grid-cols-2 gap-12 mt-28" id="booking-form__form" @submit.prevent="submitForm">
+          <!-- Имя -->
+          <div class="body-text">
+            <input v-model="firstName" type="text" id="firstName" placeholder="Имя" required />
+          </div>
 
+          <!-- Фамилия -->
+          <div class="body-text">
+            <input v-model="lastName" type="text" id="lastName" placeholder="Фамилия" required />
+          </div>
+
+          <!-- Электронная почта -->
+          <div class="body-text col-span-2">
+            <input v-model="email" type="email" autocomplete="email" placeholder="Электронная почта" id="email" />
+          </div>
+
+          <!-- Телефон -->
+          <div class="body-text col-span-2">
+            <input v-model="phone" type="tel" id="phone" autocomplete="tel" placeholder="Телефон" required />
+          </div>
+
+          <!-- Дата -->
+          <div class="body-text">
+            <input v-model="date" type="date" id="date" required />
+          </div>
+
+          <!-- Время -->
+          <div class="body-text">
+            <select v-model="time" id="time" required>
+              <option disabled value="">Выберите время</option>
+              <option v-for="t in availableTimes" :key="t" :value="t">{{ t }}</option>
+            </select>
+          </div>
+
+          <!-- Количество человек -->
+          <div class="body-text col-span-2">
+            <label for="guests">Количество человек *</label>
+            <select v-model="guests" id="guests" required>
+              <option disabled value="">Выберите количество человек</option>
+              <option v-for="n in 8" :key="n" :value="n">{{ n }}</option>
+            </select>
+          </div>          
+        </form>
+        <!-- Кнопка бронирования -->
+        <button class="booking-form__form__submit heading-five mt-20" type="submit" form="booking-form__form">Забронировать сейчас</button>
+        <!-- Сообщение об успешном бронировании -->
+        <p v-if="successMessage">{{ successMessage }}</p>
+      </div>  
+    </div>    
+  </section>
+</template>
 <style scoped lang="scss">
 input, select, button {
   display: block;

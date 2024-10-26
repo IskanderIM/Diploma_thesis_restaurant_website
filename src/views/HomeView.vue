@@ -1,8 +1,8 @@
 <script setup>
-import HeaderHomeBlock from "@/components/blocks/HeaderHomeBlock.vue"
+import HeaderHomeBlock from "@/components/blocks/HeaderHomeBlock.vue";
 import MenuHomeBlock from '@/components/blocks/MenuHomeBlock.vue';
 import RecentPostBlogBlock from "@/components/blocks/RecentPostBlogBlock.vue";
-import BookingForm from "@/components/BookingForm.vue"
+import BookingForm from "@/components/BookingForm.vue";
 import FooterBlock from "@/components/blocks/FooterBlock.vue";
 </script>
 <template>
@@ -44,14 +44,11 @@ import FooterBlock from "@/components/blocks/FooterBlock.vue";
 </template>
 <script>
 export default {
-  components: { HeaderHomeBlock, FooterBlock, BookingForm, MenuHomeBlock },
   name: 'HomeView'
 }
 </script>
 <style lang="scss" scoped>
   .chef {
-    // display: flex;
-    // flex-direction: row;
     background-image: url('@/assets/home/backgroundChef.svg');
     &-container {
       max-width: 1680px;

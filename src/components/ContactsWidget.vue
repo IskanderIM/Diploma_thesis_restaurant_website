@@ -1,7 +1,7 @@
 <template>
   <article class="contacts-widget">
     <header class="contacts-widget__title">
-      <h6>контакты</h6>
+      <h6 class="text-white">контакты</h6>
     </header>
     <div class="contacts-widget__contacts">
       <a class="contacts-widget__text" href="tel:+86852346000">+86 852 346 000</a><br>

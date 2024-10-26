@@ -1,11 +1,11 @@
 <script setup>
-import AboutMenuBlock from '@/components/blocks/AboutMenuBlock.vue';
+import HeaderAboutBlock from '@/components/blocks/HeaderAboutBlock.vue';
 import BookingForm from "@/components/BookingForm.vue"
 import FooterBlock from "@/components/blocks/FooterBlock.vue";
 </script>
 <template>
   <section>
-    <AboutMenuBlock />
+    <HeaderAboutBlock />
     <section class="about-view our-story-background-image flex flex-col items-center gap-36">
       <div class="about-view__container container-our-story">
         <div class="about-view__section-content grid grid-cols-2 gap-[60px]">

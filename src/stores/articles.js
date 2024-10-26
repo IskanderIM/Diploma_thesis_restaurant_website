@@ -1,7 +1,5 @@
-// stores/articles.js
 import { defineStore } from 'pinia';
 import axios from 'axios';
-
 export const useArticleStore = defineStore('articleStore', {
   state: () => ({
     articles: [],      // Массив статей
@@ -26,7 +24,6 @@ export const useArticleStore = defineStore('articleStore', {
         console.error('Ошибка загрузки статей:', error);
       }
     },
-
     // Загрузка статьи по ID
     async fetchArticle(id) {
       try {
@@ -36,7 +33,6 @@ export const useArticleStore = defineStore('articleStore', {
         console.error('Ошибка загрузки статьи:', error);
       }
     },
-
     // Загрузка комментариев для статьи
     async fetchComments(articleId) {
       try {
@@ -46,12 +42,10 @@ export const useArticleStore = defineStore('articleStore', {
         console.error('Ошибка загрузки комментариев:', error);
       }
     },
-
     // Добавление комментария к статье
     async addComment(articleId, comment) {
       try {
-        const response = await axios.post(`http://localhost:3000/api/articles/${articleId}/comments`, comment);
-        
+        const response = await axios.post(`http://localhost:3000/api/articles/${articleId}/comments`, comment);        
         // Если комментарии уже загружены, добавляем новый комментарий в список
         if (this.comments[articleId]) {
           this.comments[articleId].push(response.data);
@@ -62,7 +56,6 @@ export const useArticleStore = defineStore('articleStore', {
         console.error('Ошибка добавления комментария:', error);
       }
     },
-
     // Очистка состояния при переходе на новую страницу
     resetState() {
       this.articles = [];
